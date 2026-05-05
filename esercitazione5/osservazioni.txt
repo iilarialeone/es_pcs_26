@@ -1,0 +1,14 @@
+Dopo aver confrontato i tempi degli algoritmi di
+ordinamento, la prima cosa che si nota è che sui vettori piccoli gli algoritmi
+"quadratici" tendono ad essere più vicini. L'unica eccezione è bubblesort che è sempre il più lento,
+invece insertionsort sui vettori sotto i 100 elementi offre prestazioni migliori 
+di quicksort (in modalita' Release). La spiegazione probabile è che quicksort facendo tante chiamate ricorsive,
+impiega troppo tempo per dividere in due vettori piccoli, riducendo drasticamente l'efficenza. Mergesort e' anche peggio perche' deve allocare i
+vettori ausiliari ad ogni passaggio.
+
+std::sort della libreria standard, ha quasi sempre prestazioni migliori.
+
+Conclusione: quicksort vince contro mergesort, l'ibrido vince contro
+quicksort puro, e std::sort vince contro tutti. Esiste una soglia
+sotto la quale conviene passare agli algoritmi quadratici, nel mio
+caso intorno ai 30 elementi.
