@@ -5,7 +5,7 @@
 #include "unidirected_edge.hpp"
 
 template<typename T>
-class undirected_graph{
+class unidirected_graph{
     //I nodi sono unici
     std::set<T> nodes;
     
@@ -14,8 +14,8 @@ class undirected_graph{
 
     public:
     //Costruttori:
-    undirected_graph() = default; //di default
-    undirected_graph(const undirected_graph& other) = default; //di copia
+    unidirected_graph() = default; //di default
+    unidirected_graph(const unidirected_graph& other) = default; //di copia
 
     //Definisco i vicini, ipotizzando che possano esistere degli archi da
     //un nodo in se stesso, e in questo caso il nodo è vicino di se stesso
@@ -64,7 +64,7 @@ class undirected_graph{
         return edges.at(number); //Se il numero è fuori range mi dà eccezione
     }
 
-    std::vector<unidirected_edge<T>> operator-(const undirected_graph& other) const {
+    std::vector<unidirected_edge<T>> operator-(const unidirected_graph& other) const {
         std::vector<unidirected_edge<T>> result;
         for (const auto& edge : edges) {
             if (other.edge_number(edge) == other.edges.size()) { //Prendo tutti gli archi del grafo 1 e 
