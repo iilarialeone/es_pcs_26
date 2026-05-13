@@ -22,11 +22,11 @@ class undirected_graph{
     std::vector<T> neighbours(const T& vertice) const{
         std::vector<T> result;
         for(const auto& edge : edges) {
-            if (edge.source == vertice) {
-                result.emplace_back(edge.destination);
+            if (edge.from() == vertice) {
+                result.emplace_back(edge.to());
             }
-            else if (edge.destination == vertice) {
-                result.emplace_back(edge.source);
+            else if (edge.to() == vertice) {
+                result.emplace_back(edge.from());
             }
         }
         
@@ -40,7 +40,7 @@ class undirected_graph{
     void add_edge(const T& nodo1, const T& nodo2) {
         nodes.insert(nodo1);
         nodes.insert(nodo2);
-        edges.emplace_back(undirected_edge<T>(nodo1, nodo2));
+        edges.emplace_back(unidirected_edge<T>(nodo1, nodo2));
         }
 
     std::vector<unidirected_edge<T>> all_edges() const {
